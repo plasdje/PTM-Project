@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class TopicManagerSingleton {
 
     public static class TopicManager{
-        private static final TopicManager instance = new TopicManager();
+        private final static TopicManager instance = new TopicManager();
 
-        private final Map<String, Topic> topics;
+        public final Map<String, Topic> topics;
         private TopicManager(){
             this.topics = new HashMap<>();
         }
