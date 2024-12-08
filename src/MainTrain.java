@@ -90,7 +90,7 @@ public class MainTrain {
 
         if (Math.abs(rslt - ga.msg.asDouble)>0.05)
             System.out.println("your BinOpAgents did not produce the desired result (-20)");
-        
+
 
     }
 
