@@ -47,51 +47,51 @@ public class MainTrain {
             System.out.println("wrong answer for hasCycles when there is a cycle (-10)");
         
     }
-//
-//    public static class GetAgent implements Agent{
-//
-//        public Message msg;
-//        public GetAgent(String topic){
-//            TopicManagerSingleton.get().getTopic(topic).subscribe(this);
-//        }
-//
-//        @Override
-//        public String getName() { return "Get Agent";}
-//
-//        @Override
-//        public void reset() {}
-//
-//        @Override
-//        public void callback(String topic, Message msg) {
-//            this.msg=msg;
-//        }
-//
-//        @Override
-//        public void close() {}
-//
-//    }
-//
-//    public static void testBinGraph(){
-//        TopicManager tm=TopicManagerSingleton.get();
-//        tm.clear();
-//        Config c=new MathExampleConfig();
-//        c.create();
-//
-//        GetAgent ga=new GetAgent("R3");
-//
-//        Random r=new Random();
-//        int x=1+r.nextInt(100);
-//        int y=1+r.nextInt(100);
-//        tm.getTopic("A").publish(new Message(x));
-//        tm.getTopic("B").publish(new Message(y));
-//        double rslt=(x+y)*(x-y);
-//
-//        if (Math.abs(rslt - ga.msg.asDouble)>0.05)
-//            System.out.println("your BinOpAgents did not produce the desired result (-20)");
-//
-//
-//    }
-//
+
+    public static class GetAgent implements Agent{
+
+        public Message msg;
+        public GetAgent(String topic){
+            TopicManagerSingleton.get().getTopic(topic).subscribe(this);
+        }
+
+        @Override
+        public String getName() { return "Get Agent";}
+
+        @Override
+        public void reset() {}
+
+        @Override
+        public void callback(String topic, Message msg) {
+            this.msg=msg;
+        }
+
+        @Override
+        public void close() {}
+
+    }
+
+    public static void testBinGraph(){
+        TopicManager tm=TopicManagerSingleton.get();
+        tm.clear();
+        Config c=new MathExampleConfig();
+        c.create();
+
+        GetAgent ga=new GetAgent("R3");
+
+        Random r=new Random();
+        int x=1+r.nextInt(100);
+        int y=1+r.nextInt(100);
+        tm.getTopic("A").publish(new Message(x));
+        tm.getTopic("B").publish(new Message(y));
+        double rslt=(x+y)*(x-y);
+
+        if (Math.abs(rslt - ga.msg.asDouble)>0.05)
+            System.out.println("your BinOpAgents did not produce the desired result (-20)");
+
+
+    }
+
 //    public static void testTopicsGraph(){
 //        TopicManager tm=TopicManagerSingleton.get();
 //        tm.clear();
@@ -123,7 +123,7 @@ public class MainTrain {
 //    }
     public static void main(String[] args) {
         testCycles();
-//        testBinGraph();
+        testBinGraph();
 //        testTopicsGraph();
         System.out.println("done");
     }

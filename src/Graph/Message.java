@@ -6,7 +6,7 @@ public class Message {
     public final String asText;
     public final double asDouble;
     public final Date date;
-    Message(String message){
+    public Message(String message){
         this.asText = message;
         this.data = message.getBytes();
         double tempDouble;
@@ -19,11 +19,11 @@ public class Message {
         this.asDouble = tempDouble;
         this.date = new Date();
     }
-    Message(byte[] bytes){
+    public Message(byte[] bytes){
         this(new String(bytes));
 
     }
-    Message(double number){
+    public Message(double number){
         this(String.valueOf(number));
     }
 }
