@@ -92,39 +92,46 @@ public class MainTrain {
 
     }
 
-//    public static void testTopicsGraph(){
-//        TopicManager tm=TopicManagerSingleton.get();
-//        tm.clear();
-//        Config c=new MathExampleConfig();
-//        c.create();
-//        Graph g=new Graph();
-//        g.createFromTopics();
-//
-//        if(g.size()!=8)
-//            System.out.println("the graph you created from topics is not in the right size (-10)");
-//
-//        List<String> l=Arrays.asList("TA","TB","Aplus","Aminus","TR1","TR2","Amul","TR3");
-//        boolean b=true;
-//        for(Node n  : g){
-//            b&=l.contains(n.getName());
-//        }
-//        if(!b)
-//            System.out.println("the graph you created from topics has wrong names to Nodes (-10)");
-//
-//        if (g.hasCycles())
-//            System.out.println("Wrong result in hasCycles for topics graph without cycles (-10)");
-//
-//        GetAgent ga=new GetAgent("R3");
-//        tm.getTopic("A").addPublisher(ga); // cycle
-//        g.createFromTopics();
-//
-//        if (!g.hasCycles())
-//            System.out.println("Wrong result in hasCycles for topics graph with a cycle (-10)");
-//    }
+    public static void testTopicsGraph(){
+        TopicManager tm=TopicManagerSingleton.get();
+        tm.clear();
+        Config c=new MathExampleConfig();
+        c.create();
+        Graph g=new Graph();
+        g.createFromTopics();
+//        System.out.println("Updated Once");
+//        g.printGraph();
+//        g.printTopics();
+//        System.out.println("---------------------------------");
+        if(g.size()!=8)
+            System.out.println("the graph you created from topics is not in the right size (-10)");
+
+        List<String> l=Arrays.asList("TA","TB","Aplus","Aminus","TR1","TR2","Amul","TR3");
+        boolean b=true;
+        for(Node n  : g){
+            b&=l.contains(n.getName());
+        }
+        if(!b)
+            System.out.println("the graph you created from topics has wrong names to Nodes (-10)");
+
+        if (g.hasCycles())
+            System.out.println("Wrong result in hasCycles for topics graph without cycles (-10)");
+
+        GetAgent ga=new GetAgent("R3");
+        tm.getTopic("A").addPublisher(ga); // cycle
+        g.createFromTopics();
+//        System.out.println("Updated Twice");
+//        g.printGraph();
+//        g.printTopics();
+//        System.out.println("---------------------------------");
+        if (!g.hasCycles())
+            System.out.println("Wrong result in hasCycles for topics graph with a cycle (-10)");
+    }
+
     public static void main(String[] args) {
         testCycles();
         testBinGraph();
-//        testTopicsGraph();
+        testTopicsGraph();
         System.out.println("done");
     }
 
