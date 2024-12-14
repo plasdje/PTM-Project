@@ -26,6 +26,44 @@ public class Graph extends ArrayList<Node>{
         return false;
     }
 
+    public void createFromTopics() {
+        for (Node node : this) {
+            node.getEdges().clear();
+        }
+
+        TopicManager tm = TopicManagerSingleton.get();
+        Collection<Topic> topics = tm.getTopics();
+
+        for (Topic t : topics) {
+            Node topicNode = ensureNodeExists("T" + t.name);
+
+            for (Agent a : t.subs) {
+                Node agentNode = ensureNodeExists("A" + a.getName());
+                topicNode.addEdge(agentNode);
+            }
+
+            for (Agent a : t.pubs) {
+                Node agentNode = ensureNodeExists("A" + a.getName());
+                agentNode.addEdge(topicNode);
+            }
+        }
+    }
+
+
+    private Node ensureNodeExists(String name) {
+        Node n = nodeMap.get(name);
+        if (n == null) {
+            n = new Node(name);
+            this.add(n);
+            nodeMap.put(name, n);
+        }
+        return n;
+    }
+
+}
+
+
+
 //    public void printGraph() {
 //        System.out.println("Graph structure:");
 //        for (Node node : this) {
@@ -52,37 +90,3 @@ public class Graph extends ArrayList<Node>{
 //            }
 //        }
 //    }
-
-    public void createFromTopics(){
-        for (Node node : this) {
-            node.getNode().clear();
-        }
-        TopicManager tm = TopicManagerSingleton.get();
-        Collection<Topic> topics = tm.getTopics();
-
-        for (Topic t : topics) {
-            Node topicNode = ensureNodeExists("T" + t.name);
-
-            for (Agent a : t.subs) {
-                Node agentNode = ensureNodeExists("A" + a.getName());
-                topicNode.addEdge(agentNode);
-            }
-
-            for (Agent a : t.pubs) {
-                Node agentNode = ensureNodeExists("A" + a.getName());
-                agentNode.addEdge(topicNode);
-            }
-        }
-    }
-
-    private Node ensureNodeExists(String name) {
-        Node n = nodeMap.get(name);
-        if (n == null) {
-            n = new Node(name);
-            this.add(n);
-            nodeMap.put(name, n);
-        }
-        return n;
-    }
-
-}

@@ -15,7 +15,7 @@ public class Node {
     }
     public String getName(){return this.name;}
     public void setName(String name){this.name = name;}
-    public List<Node> getNode(){return this.edges;}
+    public List<Node> getEdges(){return this.edges;}
     public void setNode(List<Node> l){this.edges = l;}
     public Message getMsg(){return this.msg;}
     public void setMsg(Message msg){this.msg = msg;}
@@ -46,7 +46,7 @@ public class Node {
         stack.add(current);
         visited.add(current);
 
-        for(Node s : current.getNode()){
+        for(Node s : current.getEdges()){
             if(!visited.contains(s))
             {
                 if(recursiveNode(s,visited,stack))
