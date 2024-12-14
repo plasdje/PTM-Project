@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+//import java.util.HashSet;
+//import java.util.Set;
 
 import Graph.TopicManagerSingleton.TopicManager;
 import Graph.Agent;
@@ -25,11 +27,16 @@ public class Graph extends ArrayList<Node>{
         }
         return false;
     }
-
-    public void createFromTopics() {
+    public void clearGraph() {
         for (Node node : this) {
             node.getEdges().clear();
         }
+        this.clear();
+        nodeMap.clear();
+    }
+
+    public void createFromTopics() {
+       clearGraph();
 
         TopicManager tm = TopicManagerSingleton.get();
         Collection<Topic> topics = tm.getTopics();

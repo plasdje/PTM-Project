@@ -120,12 +120,12 @@ public class MainTrain {
         GetAgent ga=new GetAgent("R3");
         tm.getTopic("A").addPublisher(ga); // cycle
         g.createFromTopics();
-//        System.out.println("Updated Twice");
+        if (!g.hasCycles())
+            System.out.println("Wrong result in hasCycles for topics graph with a cycle (-10)");
+        //        System.out.println("Updated Twice");
 //        g.printGraph();
 //        g.printTopics();
 //        System.out.println("---------------------------------");
-        if (!g.hasCycles())
-            System.out.println("Wrong result in hasCycles for topics graph with a cycle (-10)");
     }
 
     public static void main(String[] args) {
