@@ -20,7 +20,6 @@ public class Graph extends ArrayList<Node>{
     public boolean hasCycles() {
         for (Node n : this) {
             if (n.hasCycles()) {
-                System.out.println("Cycle detected starting at node: " + n.getName());
                 return true;
             }
         }
