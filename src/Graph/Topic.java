@@ -7,7 +7,6 @@ public class Topic {
     public final String name;
     public final List<Agent> subs;
     public final List<Agent> pubs;
-    private Message lastMessage;
     Topic(String name){
         this.name=name;
         this.subs = new ArrayList<Agent>();
@@ -23,7 +22,6 @@ public class Topic {
     }
 
     public void publish(Message m){
-        lastMessage = m;
         for(Agent agent : this.subs){
             agent.callback(this.name,m);
         }
@@ -33,9 +31,7 @@ public class Topic {
         if(!pubs.contains(a))
             pubs.add(a);
     }
-    public Message getMsg(){
-        return lastMessage;
-    }
+
     public void removePublisher(Agent a){
         if(pubs.contains(a))
             pubs.remove(a);
