@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-//import java.util.HashSet;
-//import java.util.Set;
 
 import Graph.TopicManagerSingleton.TopicManager;
 import Graph.Agent;
@@ -20,8 +18,8 @@ public class Graph extends ArrayList<Node>{
         super();
     }
     public boolean hasCycles() {
-        for (Node n : this) {
-            if (n.hasCycles()) {
+        for (Node node : this) {
+            if (node.hasCycles()) {
                 return true;
             }
         }
@@ -34,10 +32,8 @@ public class Graph extends ArrayList<Node>{
         this.clear();
         nodeMap.clear();
     }
-
-    public void createFromTopics() {
-       clearGraph();
-
+    public void createFromTopics(){
+        clearGraph();
         TopicManager tm = TopicManagerSingleton.get();
         Collection<Topic> topics = tm.getTopics();
 
@@ -56,7 +52,6 @@ public class Graph extends ArrayList<Node>{
         }
     }
 
-
     private Node ensureNodeExists(String name) {
         Node n = nodeMap.get(name);
         if (n == null) {
@@ -68,32 +63,3 @@ public class Graph extends ArrayList<Node>{
     }
 
 }
-
-
-
-//    public void printGraph() {
-//        System.out.println("Graph structure:");
-//        for (Node node : this) {
-//            System.out.println("Node: " + node.getName());
-//            for (Node edge : node.getNode()) {
-//                System.out.println("  -> " + edge.getName());
-//            }
-//        }
-//        System.out.println();
-//    }
-//    public void printTopics() {
-//        TopicManager tm = TopicManagerSingleton.get();
-//        Collection<Topic> topics = tm.getTopics();
-//
-//        for (Topic t : topics) {
-//            System.out.println("Topic: " + t.name);
-//            System.out.println("  Subscribers:");
-//            for (Agent a : t.subs) {
-//                System.out.println("    " + a.getName());
-//            }
-//            System.out.println("  Publishers:");
-//            for (Agent a : t.pubs) {
-//                System.out.println("    " + a.getName());
-//            }
-//        }
-//    }

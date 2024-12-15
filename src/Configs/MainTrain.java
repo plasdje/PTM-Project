@@ -122,7 +122,7 @@ public class MainTrain {
         g.createFromTopics();
         if (!g.hasCycles())
             System.out.println("Wrong result in hasCycles for topics graph with a cycle (-10)");
-        //        System.out.println("Updated Twice");
+//        //        System.out.println("Updated Twice");
 //        g.printGraph();
 //        g.printTopics();
 //        System.out.println("---------------------------------");
