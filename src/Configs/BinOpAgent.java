@@ -38,8 +38,6 @@ public class BinOpAgent implements Agent{
     public void reset() {
         this.val1 = 0.0;
         this.val2 = 0.0;
-        input1.publish(new Message(0.0));
-        input2.publish(new Message(0.0));
     }
 
     @Override
@@ -48,14 +46,12 @@ public class BinOpAgent implements Agent{
             return;
         if(topic.equals(this.input1.name)){
             val1 = msg.asDouble;
-            val2 = (input2.getMsg() != null) ? input2.getMsg().asDouble : 0;
         }
         else if(topic.equals(this.input2.name)) {
             val2 = msg.asDouble;
-            val1 = (input1.getMsg() != null) ? input1.getMsg().asDouble : 0;
         }
 
-        double result = this.operation.apply(val1, val2);
+        double result = this.operation.apply(this.val1, this.val2);
         this.output.publish(new Message(result));
     }
 
