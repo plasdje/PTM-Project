@@ -52,7 +52,9 @@ public class BinOpAgent implements Agent{
         }
 
         double result = this.operation.apply(this.val1, this.val2);
-        this.output.publish(new Message(result));
+        if (this.output.getPubs().contains(this)) {
+            this.output.publish(new Message(result));
+        }
     }
 
     @Override
