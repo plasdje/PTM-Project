@@ -36,6 +36,12 @@ public class Topic {
         if(pubs.contains(a))
             pubs.remove(a);
     }
+    public List<Agent> getSubs() {
+        return subs;
+    }
+    public List<Agent> getPubs() {
+        return pubs;
+    }
 
 
 }
