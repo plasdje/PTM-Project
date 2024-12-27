@@ -40,7 +40,6 @@ public class GenericConfig implements Config {
                 String className = lines.get(i);
                 String[] subs = lines.get(i + 1).split(",");
                 String[] pubs = lines.get(i + 2).split(",");
-
                 Class<?> agentClass = Class.forName(className);
                 Constructor<?> constructor = agentClass.getConstructor(String[].class, String[].class);
                 Agent agent = (Agent) constructor.newInstance((Object) subs, (Object) pubs);
