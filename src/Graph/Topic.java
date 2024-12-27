@@ -12,6 +12,9 @@ public class Topic {
         this.subs = new ArrayList<Agent>();
         this.pubs = new ArrayList<Agent>();
     }
+    public String getName(){
+        return this.name;
+    }
     public void subscribe(Agent a){
         if(!subs.contains(a))
             subs.add(a);
