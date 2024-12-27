@@ -19,7 +19,6 @@ public class GenericConfig implements Config {
 
     @Override
     public void create() {
-        System.out.println("Creating GenericConfig with conf file: " + confFile);
 
         if (confFile == null || confFile.isEmpty()) {
             throw new IllegalStateException("Configuration file is not set.");
@@ -65,7 +64,6 @@ public class GenericConfig implements Config {
 
     @Override
     public void close() {
-        System.out.println("Closing GenericConfig");
         for (ParallelAgent agent : agents) {
             agent.close();
         }

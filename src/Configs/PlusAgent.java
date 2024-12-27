@@ -18,7 +18,7 @@ public class PlusAgent implements Agent {
             throw new IllegalArgumentException("PlusAgent requires at least 2 subs and 1 pub.");
         }
 
-        this.name = "PlusAg ent";
+        this.name = "PlusAgent";
         TopicManager manager = TopicManagerSingleton.get();
         this.subs = new Topic[]{manager.getTopic(subs[0]), manager.getTopic(subs[1])};
         this.output = manager.getTopic(pubs[0]);
