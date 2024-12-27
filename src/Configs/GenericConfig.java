@@ -43,7 +43,7 @@ public class GenericConfig implements Config {
 
                 Class<?> agentClass = Class.forName(className);
                 Constructor<?> constructor = agentClass.getConstructor(String[].class, String[].class);
-                Agent agent = (Agent) constructor.newInstance(subs, pubs);
+                Agent agent = (Agent) constructor.newInstance((Object) subs, (Object) pubs);
 
                 ParallelAgent parallelAgent = new ParallelAgent(agent);
                 agents.add(parallelAgent);
