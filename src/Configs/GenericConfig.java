@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
-import Graph.Topic;
 
 public class GenericConfig implements Config {
     private String confFile;
