@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
+import Graph.Topic;
 
 public class GenericConfig implements Config {
     private String confFile;
@@ -42,7 +43,7 @@ public class GenericConfig implements Config {
 
                 Class<?> agentClass = Class.forName(className);
                 Constructor<?> constructor = agentClass.getConstructor(String[].class, String[].class);
-                Agent agent = (Agent) constructor.newInstance((Object) subs, (Object) pubs);
+                Agent agent = (Agent) constructor.newInstance(subs, pubs);
 
                 ParallelAgent parallelAgent = new ParallelAgent(agent);
                 agents.add(parallelAgent);
