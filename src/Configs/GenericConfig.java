@@ -1,4 +1,4 @@
-package test;
+package Configs;
 
 import Configs.Config;
 import Graph.Agent;
