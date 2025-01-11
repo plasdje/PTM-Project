@@ -1,4 +1,4 @@
-package Server;
+package Server.Servlets;
 
 import java.io.IOException;
 import java.io.OutputStream;

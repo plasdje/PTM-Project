@@ -1,6 +1,8 @@
 package Server;
 
 
+import Server.Servlets.Servlet;
+
 public interface HTTPServer extends Runnable{
     public void addServlet(String httpCommanmd, String uri, Servlet s);
     public void removeServlet(String httpCommanmd, String uri);

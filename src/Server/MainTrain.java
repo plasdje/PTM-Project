@@ -1,4 +1,4 @@
-package test;
+package Server;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import test.RequestParser.RequestInfo;
+import Server.RequestParser.RequestInfo;
 
 
 public class MainTrain { // RequestParser
