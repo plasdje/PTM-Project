@@ -33,7 +33,7 @@ public class MainTrain { // RequestParser
         try {
             RequestParser.RequestInfo requestInfo = RequestParser.parseRequest(input);
 
-            // Test HTTP command
+//             Test HTTP command
             if (!requestInfo.getHttpCommand().equals("GET")) {
                 System.out.println("HTTP command test failed (-5)");
             }
@@ -50,7 +50,7 @@ public class MainTrain { // RequestParser
                 for(String s : requestInfo.getUriSegments()){
                     System.out.println(s);
                 }
-            } 
+            }
             // Test parameters
             Map<String, String> expectedParams = new HashMap<>();
             expectedParams.put("id", "123");
@@ -60,29 +60,29 @@ public class MainTrain { // RequestParser
                 System.out.println("Parameters test failed (-5)");
             }
 
-            // Test content
+//             Test content
             byte[] expectedContent = "hello world!\n".getBytes();
             if (!Arrays.equals(requestInfo.getContent(), expectedContent)) {
                 System.out.println("Content test failed (-5)");
-            } 
+            }
             input.close();
         } catch (IOException e) {
             System.out.println("Exception occurred during parsing: " + e.getMessage() + " (-5)");
-        }        
+        }
     }
 
 
-    public static void testServer() throws Exception{
-		// implement your own tests!
-    }
+//    public static void testServer() throws Exception{
+//		// implement your own tests!
+//    }
     
     public static void main(String[] args) {
         testParseRequest(); // 40 points
-        try{
-            testServer(); // 60
-        }catch(Exception e){
-            System.out.println("your server throwed an exception (-60)");
-        }
+//        try{
+//            testServer(); // 60
+//        }catch(Exception e){
+//            System.out.println("your server throwed an exception (-60)");
+//        }
         System.out.println("done");
     }
 
